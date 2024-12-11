@@ -10,6 +10,14 @@ const updateBadge = (feedSliceState: RootState['feeds']) => {
         return;
     }
 
+    // TODO mr make this configurable in options
+    browser.sidebarAction.setIcon({
+        path: {
+            16: totalUnreadReadItems > 0 ? 'icon_unread.svg' : 'rss.svg',
+            32: totalUnreadReadItems > 0 ? 'icon_unread.svg' : 'rss.svg',
+        },
+    });
+
     browser.action.setBadgeText({ text: totalUnreadReadItems !== 0 ? totalUnreadReadItems.toString() : '' });
 };
 
